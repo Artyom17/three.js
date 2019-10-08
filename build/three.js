@@ -23173,7 +23173,13 @@
 				session.addEventListener( 'selectend', onSessionEvent );
 				session.addEventListener( 'end', onSessionEnd );
 
-				// eslint-disable-next-line no-undef
+	      if ( gl.makeXRCompatible !== undefined ) {
+
+	         gl.makeXRCompatible();
+
+	      }
+				
+	      // eslint-disable-next-line no-undef
 				session.updateRenderState( { baseLayer: new XRWebGLLayer( session, gl ) } );
 
 				session.requestReferenceSpace( referenceSpaceType ).then( onRequestReferenceSpace );
